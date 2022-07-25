@@ -9,6 +9,7 @@ Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
 UserConfig = "38191a5c-9707-409e-a5e4-8d538fd01011"
 
 [compat]
+CodecBzip2 = "0.7"
 julia = "1.6"
 
 [extras]
