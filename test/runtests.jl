@@ -1,6 +1,6 @@
 using VGDatasets
 using Test
-import UserConfig
+import UserConfig.localstorestring
 
 @testset "VGDatasets.jl" begin
 # Create a temporary data folder and store the path to it
