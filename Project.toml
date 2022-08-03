@@ -1,5 +1,5 @@
-name = "VGDatasets"
-uuid = "986608a8-aa0f-42f8-95e6-2f923873cb93"
+name = "VisualGeometryDatasets"
+uuid = "962a53e2-84f2-440b-bfbc-4e96ec28357f"
 authors = ["Oliver Woodford"]
 version = "0.1.0"
 
