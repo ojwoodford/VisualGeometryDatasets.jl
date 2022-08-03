@@ -1,4 +1,4 @@
-import Pkg.PlatformEngines.download_verify, CodecBzip2.Bzip2DecompressorStream, VGDatasets.localpath
+import Pkg.PlatformEngines.download_verify, CodecBzip2.Bzip2DecompressorStream, VisualGeometryDatasets.localpath
 export loadbaldataset, readbalfile
 
 struct BALDataset{T<:AbstractFloat}
