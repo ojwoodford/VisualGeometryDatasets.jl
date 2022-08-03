@@ -1,15 +1,15 @@
-using VGDatasets
+using VisualGeometryDatasets
 using Test
 import UserConfig.localstorestring
 
-@testset "VGDatasets.jl" begin
+@testset "VisualGeometryDatasets.jl" begin
 # Create a temporary data folder and store the path to it
 dname = mktempdir()
-vgdir = localstorestring("VGDatasets data")
+vgdir = localstorestring("VisualGeometryDatasets data")
 if isempty(vgdir)
     vgdir = "delete"
 end
-localstorestring("VGDatasets data", dname)
+localstorestring("VisualGeometryDatasets data", dname)
 
 @testset "BAL datasets" begin
     # Download a dataset and check some values
@@ -30,6 +30,6 @@ localstorestring("VGDatasets data", dname)
 end
 
 # Revert the database path and delete the temp directory
-localstorestring("VGDatasets data", vgdir)
+localstorestring("VisualGeometryDatasets data", vgdir)
 rm(dname, recursive=true)
 end
