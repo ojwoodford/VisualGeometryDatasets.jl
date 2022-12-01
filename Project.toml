@@ -11,6 +11,7 @@ UserConfig = "38191a5c-9707-409e-a5e4-8d538fd01011"
 
 [compat]
 CodecBzip2 = "0.7"
+StaticArrays = "1"
 UserConfig = "0.3"
 julia = "1.6"
 
