@@ -1,4 +1,4 @@
-import Pkg.PlatformEngines.download_verify, CodecBzip2.Bzip2DecompressorStream, VisualGeometryDatasets.localpath
+import Pkg.PlatformEngines.download_verify, CodecBzip2.Bzip2DecompressorStream, VisualGeometryDatasets.localpath, Printf.@printf
 using StaticArrays
 export loadbaldataset, readbalfile
 
@@ -16,7 +16,11 @@ struct BALDataset{T<:AbstractFloat}
     function BALDataset{T}(m::Int, c::Int, l::Int) where T
         return new(Vector{BALMeasurement{T}}(undef, m), Vector{SVector{9, T}}(undef, c), Vector{SVector{3, T}}(undef, l))
     end
-end 
+end
+
+function Base.show(io::IO, x::BALDataset{T}) where T
+    @printf(io, "BALDataset{%s}: %d cameras, %d landmarks, %d measurements (%.1f per landmark).\n", T, length(x.cameras), length(x.landmarks), length(x.measurements), length(x.measurements)/length(x.landmarks))
+end
 
 function readbalfile(fpath::String, T::Type=Float64)
     open(fpath, "r") do fh
