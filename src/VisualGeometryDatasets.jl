@@ -1,9 +1,7 @@
 module VisualGeometryDatasets
 import UserConfig
 
-function  localpath()
-return UserConfig.localpath("VisualGeometryDatasets data", isdir, true)
-end
+localpath() = UserConfig.localpath("VisualGeometryDatasets data", isdir, true)
 
 include("BALDatasets.jl")
 end
