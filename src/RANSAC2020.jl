@@ -88,7 +88,7 @@ struct HomographyPair{T<:AbstractFloat}
 end
 
 function Base.show(io::IO, x::HomographyPair{T}) where T
-    @printf(io, "HomographyPair{%s} %s: %d correspondences, ground truth %s", T, x.name, length(x.x1), isnothing(x.H) ? "unavailable" : "available")
+    @printf(io, "HomographyPair{%s} %s: %d correspondences, ground truth %s\n", T, x.name, length(x.x1), isnothing(x.H) ? "unavailable" : "available")
 end
 
 """
@@ -143,7 +143,7 @@ struct TwoViewPair{T<:AbstractFloat}
 end
 
 function Base.show(io::IO, x::TwoViewPair{T}) where T
-    @printf(io, "TwoViewPair{%s} %s: %d correspondences, ground truth %s", T, x.name, length(x.x1), isnothing(x.F) ? "unavailable" : "available")
+    @printf(io, "TwoViewPair{%s} %s: %d correspondences, ground truth %s\n", T, x.name, length(x.x1), isnothing(x.F) ? "unavailable" : "available")
 end
 
 twoviewarchive(split::Symbol) = split in (:val, :test, :train) ? Symbol(:twoview_, split) : throw(DomainError(split, "split must be :val, :test or :train"))
