@@ -1,20 +1,26 @@
 name = "VisualGeometryDatasets"
 uuid = "962a53e2-84f2-440b-bfbc-4e96ec28357f"
 authors = ["Oliver Woodford"]
-version = "0.2.4"
+version = "0.3.0"
 
 [deps]
 CodecBzip2 = "523fee87-0ab8-5b00-afb7-3ecf72e48cfd"
+CodecZlib = "944b1d66-785c-5afd-91f1-9de20f533193"
+JLD2 = "033835bb-8acc-5ee8-8aae-3f567f8a3819"
 Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
 Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
 StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
+Tar = "a4e569a6-e804-4fa4-b0f3-eef7a1d5b13e"
 UserConfig = "38191a5c-9707-409e-a5e4-8d538fd01011"
 
 [compat]
 CodecBzip2 = "0.7, 0.8"
+CodecZlib = "0.7"
+JLD2 = "0.4, 0.5, 0.6"
 Pkg = "1.6"
 Printf = "1.6"
 StaticArrays = "1.5"
+Tar = "1"
 Test = "1.6"
 UserConfig = "0.3, 1"
 julia = "1.6"
