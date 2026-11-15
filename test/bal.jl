@@ -1,6 +1,6 @@
-@isdefined(usetempdata) || include("setup.jl")
-tempdata = usetempdata()
+@isdefined(var"@withtempdata") || include("setup.jl")
 
+@withtempdata begin
 @testset "BAL datasets" begin
     # Download a dataset and check some values
     data = loadbaldataset("problem-16-22106")
@@ -20,5 +20,4 @@ tempdata = usetempdata()
     @test eltype(data.cameras[1]) == Float32
     @test eltype(data.landmarks[1]) == Float32
 end
-
-reverttempdata(tempdata)
+end

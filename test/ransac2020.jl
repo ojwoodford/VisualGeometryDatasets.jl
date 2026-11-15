@@ -1,9 +1,8 @@
-@isdefined(usetempdata) || include("setup.jl")
+@isdefined(var"@withtempdata") || include("setup.jl")
 
 # The RANSAC 2020 tests download about 3 GB, so only run them when asked
 if get(ENV, "VGD_TEST_RANSAC2020", "") == "1"
-tempdata = usetempdata()
-
+@withtempdata begin
 @testset "RANSAC 2020 homography" begin
     d = loadransac2020homography("EVD", :val)
     @test length(d) == 7
@@ -37,6 +36,5 @@ end
     @test p.R' * p.R ≈ one(p.R)
     @test eltype(loadransac2020twoview("st_peters_square", :val, Float32)[1].F) == Float32
 end
-
-reverttempdata(tempdata)
+end
 end

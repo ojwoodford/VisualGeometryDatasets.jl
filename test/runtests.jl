@@ -1,11 +1,8 @@
 include("setup.jl")
 
-# Each dataset's tests are in their own file, which can also be run alone, e.g.
-# Pkg.test("VisualGeometryDatasets"; test_args=["imagealign"])
-const testfiles = ["bal", "imagealign", "ransac2020"]
-
+# Each dataset's tests are in their own file, which can also be run alone
 @testset "VisualGeometryDatasets.jl" begin
-    for name in (isempty(ARGS) ? testfiles : ARGS)
-        include(name * ".jl")
-    end
+    include("bal.jl")
+    include("imagealign.jl")
+    include("ransac2020.jl")
 end

@@ -2,16 +2,18 @@
 using VisualGeometryDatasets, Test, LinearAlgebra
 import UserConfig.localstorestring
 
-# Point the data folder at a new temporary folder, returning what is needed to revert it
-function usetempdata()
-    dname = mktempdir()
-    vgdir = localstorestring("VisualGeometryDatasets data")
-    localstorestring("VisualGeometryDatasets data", dname)
-    return (dname, isempty(vgdir) ? "delete" : vgdir)
-end
-
-# Revert the data folder path and delete the temporary folder
-function reverttempdata((dname, vgdir))
-    localstorestring("VisualGeometryDatasets data", vgdir)
-    rm(dname, recursive=true)
+# Run the code with the data folder pointed at a new temporary folder, then revert the data
+# folder path and delete the temporary folder
+macro withtempdata(ex)
+    return quote
+        local dname = mktempdir()
+        local vgdir = localstorestring("VisualGeometryDatasets data")
+        localstorestring("VisualGeometryDatasets data", dname)
+        try
+            $(esc(ex))
+        finally
+            localstorestring("VisualGeometryDatasets data", isempty(vgdir) ? "delete" : vgdir)
+            rm(dname, recursive=true)
+        end
+    end
 end

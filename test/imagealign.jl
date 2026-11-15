@@ -1,6 +1,6 @@
-@isdefined(usetempdata) || include("setup.jl")
-tempdata = usetempdata()
+@isdefined(var"@withtempdata") || include("setup.jl")
 
+@withtempdata begin
 @testset "Image alignment images" begin
     @test imagealignimages() == ["graffiti2", "rifle"]
     scenes = loadimagealignimages("graffiti2")
@@ -35,5 +35,4 @@ if get(ENV, "VGD_TEST_IMAGEALIGN_VIDEOS", "") == "1"
     end
 end
 end
-
-reverttempdata(tempdata)
+end
