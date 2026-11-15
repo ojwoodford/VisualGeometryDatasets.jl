@@ -1,4 +1,4 @@
-using VisualGeometryDatasets, Test
+using VisualGeometryDatasets, Test, LinearAlgebra
 import UserConfig.localstorestring
 
 @testset "VisualGeometryDatasets.jl" begin
